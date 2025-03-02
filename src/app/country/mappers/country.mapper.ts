@@ -10,6 +10,8 @@ export class CounterMapper {
       name: country.translations['spa'].common ?? 'No Spanish Name',
       capital: country.capital.join(', '),
       population: country.population,
+      region: country.region,
+      subregion: country.subregion,
     };
   }
 

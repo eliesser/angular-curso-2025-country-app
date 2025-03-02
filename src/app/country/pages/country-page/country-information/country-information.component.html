@@ -1,0 +1,19 @@
+<div class="stats shadow">
+  <div class="stat place-items-center">
+    <div class="stat-title">Population</div>
+    <div class="stat-value">{{ country().population | number }}</div>
+    <div class="stat-desc">From {{ currenYear() }}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">Name</div>
+    <div class="stat-value text-secondary">{{ country().name }}</div>
+    <div class="stat-desc text-secondary">{{ country().subregion }}</div>
+  </div>
+
+  <div class="stat place-items-center">
+    <div class="stat-title">New Registers</div>
+    <div class="stat-value">1,200</div>
+    <div class="stat-desc">↘︎ 90 (14%)</div>
+  </div>
+</div>
