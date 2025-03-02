@@ -1,1 +1,10 @@
-<p>country-page works!</p>,
+{{ countryCode }}
+
+@if (countryResource.error()) {
+<section class="flex flex-col items-center justify-center mt-10">
+  <h1>Country not fount</h1>
+  <a class="link-primary cursor-pointer">Back</a>
+</section>
+}
+
+<h3>{{ countryResource.value()!.name }}</h3>

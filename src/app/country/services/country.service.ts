@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { RESTCountry } from '../interfaces/rest-country.interface';
 import { CounterMapper } from '../mappers/country.mapper';
-import { catchError, map, throwError } from 'rxjs';
+import { catchError, map, Observable, throwError } from 'rxjs';
+import { Country } from '../interfaces/country.interface';
 
 const API_URL = 'https://restcountries.com/v3.1';
 
@@ -28,6 +29,17 @@ export class CountryService {
       map(CounterMapper.mapRestCountriesArrayToCountryArray),
       catchError((error) => {
         return throwError(() => new Error(`No exist results for ${query}`));
+      })
+    );
+  }
+
+  searchByAlphaCode(code: string): Observable<Country | undefined> {
+    const q = code.toLowerCase().trim();
+    return this.http.get<RESTCountry[]>(`${API_URL}/alpha/${q}`).pipe(
+      map(CounterMapper.mapRestCountriesArrayToCountryArray),
+      map((countries) => countries.at(0)),
+      catchError((error) => {
+        return throwError(() => new Error(`No exist results for ${code}`));
       })
     );
   }
