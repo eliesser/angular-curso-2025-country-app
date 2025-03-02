@@ -21,4 +21,14 @@ export class CountryService {
       })
     );
   }
+
+  searchByCountry(query: string) {
+    const q = query.toLowerCase().trim();
+    return this.http.get<RESTCountry[]>(`${API_URL}/name/${q}`).pipe(
+      map(CounterMapper.mapRestCountriesArrayToCountryArray),
+      catchError((error) => {
+        return throwError(() => new Error(`No exist results for ${query}`));
+      })
+    );
+  }
 }
