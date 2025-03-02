@@ -8,7 +8,7 @@ import { SearchInputComponent } from '../../../shared/search-input/search-input.
   templateUrl: './by-region-page.component.html',
 })
 export class ByRegionPageComponent {
-  onSearch(value: string) {
-    console.log(value);
+  onSearch(query: string) {
+    console.log(query);
   }
 }

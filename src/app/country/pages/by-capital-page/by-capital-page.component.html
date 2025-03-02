@@ -1,7 +1,7 @@
 <search-input
-  (value)="onSearch($event)"
+  (query)="onSearch($event)"
   txtPlaceholder="Search by capital"
   btnLabel="Search"
 />
 
-<country-list />
+<country-list [countries]="countries()" />

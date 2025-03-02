@@ -8,7 +8,7 @@ import { SearchInputComponent } from '../../../shared/search-input/search-input.
   templateUrl: './by-country-page.component.html',
 })
 export class ByCountryPageComponent {
-  onSearch(value: string) {
-    console.log(value);
+  onSearch(query: string) {
+    console.log(query);
   }
 }
