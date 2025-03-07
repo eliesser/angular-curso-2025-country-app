@@ -1,7 +1,8 @@
 <search-input
-  (query)="query.set($event)"
+  [initialValue]="query()"
   txtPlaceholder="Search by capital"
   btnLabel="Search"
+  (query)="query.set($event)"
 />
 
 <country-list

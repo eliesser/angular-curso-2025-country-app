@@ -2,6 +2,7 @@ import {
   Component,
   effect,
   input,
+  linkedSignal,
   output,
   signal,
   ViewChild,
@@ -13,19 +14,17 @@ import {
   templateUrl: './search-input.component.html',
 })
 export class SearchInputComponent {
-  @ViewChild('txtSearch') txtSearch!: HTMLInputElement;
+  initialValue = input<string>('');
   txtPlaceholder = input.required<string>();
   btnLabel = input.required<string>();
   query = output<string>();
-
-  inputValue = signal<string>('');
+  inputValue = linkedSignal<string>(() => this.initialValue());
 
   debounceEffect = effect((OnCleanup) => {
     const value = this.inputValue();
 
     const timeout = setTimeout(() => {
       this.query.emit(value);
-      this.txtSearch.value = '';
     }, 500);
 
     OnCleanup(() => clearTimeout(timeout));
@@ -33,6 +32,5 @@ export class SearchInputComponent {
 
   onSearch(txtSearch: HTMLInputElement) {
     this.query.emit(txtSearch.value);
-    txtSearch.value = '';
   }
 }

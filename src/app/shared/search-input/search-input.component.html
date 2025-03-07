@@ -5,6 +5,7 @@
     [placeholder]="txtPlaceholder()"
     autofocus
     #txtSearch
+    [value]="inputValue()"
     (keyup.enter)="onSearch(txtSearch)"
     (keyup)="inputValue.set(txtSearch.value)"
   />
