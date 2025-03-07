@@ -8,7 +8,7 @@ export class CounterMapper {
       flag: country.flag,
       flagSvg: country.flags.svg,
       name: country.translations['spa'].common ?? 'No Spanish Name',
-      capital: country.capital.join(', '),
+      capital: country.capital?.join(', '),
       population: country.population,
       region: country.region,
       subregion: country.subregion,

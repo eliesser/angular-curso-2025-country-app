@@ -8,3 +8,11 @@ export interface Country {
   region: string;
   subregion: string;
 }
+
+export type Region =
+  | 'Africa'
+  | 'Americas'
+  | 'Asia'
+  | 'Europe'
+  | 'Oceania'
+  | 'Antarctic';
