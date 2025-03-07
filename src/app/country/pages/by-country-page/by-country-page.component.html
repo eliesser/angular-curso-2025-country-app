@@ -1,4 +1,5 @@
 <search-input
+  [initialValue]="query()"
   (query)="query.set($event)"
   txtPlaceholder="Search by country"
   btnLabel="Search"
